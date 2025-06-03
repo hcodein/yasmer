@@ -29,28 +29,30 @@
       --card-bg: #f7f9fc;
       --text-color: #333;
       --muted-color: #555;
-      --border-radius: 0.75rem; /* 12px */
+      --link-color: #1e90ff;          /* لون الرابط الافتراضي */
+      --link-hover-color: #163d74;    /* لون عند المرور */
+      --border-radius: 0.75rem;       /* 12px */
       --container-max-width: 1000px;
-      --content-padding: 1.25rem; /* 20px */
+      --content-padding: 1.25rem;     /* 20px */
     }
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
       font-family: 'Cairo', sans-serif;
       background-color: var(--light-bg);
-      margin: 0;
       color: var(--text-color);
       line-height: 1.7;
     }
     a {
       text-decoration: none;
-      color: inherit;
+      color: var(--link-color);
+      transition: color 0.3s ease;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
+    a:hover {
+      color: var(--link-hover-color);
     }
 
     /* === الرأس (Header) === */
@@ -211,6 +213,27 @@
     .content-card p {
       font-size: 0.95rem;
       color: var(--muted-color);
+    }
+
+    /* === رابط صاحب الفكرة (ميزة ظاهرة وجذابة) === */
+    .idea-link-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .idea-link {
+      display: inline-block;
+      background-color: var(--secondary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .idea-link:hover {
+      background-color: #580a8b;
+      transform: translateY(-2px);
     }
 
     /* === قائمة القوانين (Rules List) === */
@@ -492,7 +515,6 @@
     <!-- === قسم عنّا (About) === -->
     <section id="about">
       <h2>عن ReffidGPT</h2>
-      <h3><a href="https://huggingface.co/spaces/enotkrutoy/Reffid-GPT-Ai-Chatbot-With-Image-Upload">صاحب الفكره</a></h3>
       <p>
         <strong>ReffidGPT</strong> هو مساعد ذكي مبني على أحدث تقنيات الذكاء الاصطناعي، صُمّم خصيصًا للأطفال ولأولياء الأمور والمعلمين لضمان بيئة تعليمية آمنة وتفاعلية. يهدف إلى تقديم شرح مبسط لمفاهيم الذكاء الاصطناعي وتشجيع الرحلة التعليمية من خلال أنشطة تفاعلية ومحتوى غني.
       </p>
@@ -532,13 +554,20 @@
           <li><strong>الألفينات (2000s):</strong> انتشار التعلم العميق وتحسين قدرات المعالجة الحاسوبية.</li>
           <li><strong>اليوم (2020s):</strong> تطبيقات واسعة في المساعدات الصوتية، السيارات ذاتية القيادة، وتحليل البيانات الكبيرة.</li>
         </ol>
+
+        <!-- رابط صاحب الفكرة -->
+        <div class="idea-link-container">
+          <a href="https://huggingface.co/spaces/enotkrutoy/Reffid-GPT-Ai-Chatbot-With-Image-Upload" class="idea-link">
+            صاحب الفكرة
+          </a>
+        </div>
       </div>
 
       <div class="content-card">
         <h3>تطبيقات الذكاء الاصطناعي في حياتنا اليومية</h3>
         <ul>
           <li><strong>المساعدات الصوتية:</strong> مثل Siri وGoogle Assistant، تساعد في الإجابة على الأسئلة وتنظيم الجداول.</li>
-          <li><strong>التعرف على الصور:</strong> استخدام الكاميرات الذكية للتعرف على الوجوه وتسميات الكائنات.</li>
+          <li><strong>التعرف على الصور:</strong> استخدام الكاميرات ذكية للتعرف على الوجوه وتسميات الكائنات.</li>
           <li><strong>الألعاب التفاعلية:</strong> ألعاب تتكيّف مع مستوى اللاعب وتزيد صعوبتها تلقائيًا.</li>
           <li><strong>السيارات ذاتية القيادة:</strong> تعتمد على الذكاء الاصطناعي لتحليل البيئة واتخاذ قرارات قيادة آمنة.</li>
           <li><strong>التوصيات الذكية:</strong> مثل اقتراح مقاطع الفيديو على YouTube أو الأفلام على Netflix بناءً على تفضيلاتك.</li>
@@ -734,3 +763,4 @@
   </script>
 </body>
 </html>
+
