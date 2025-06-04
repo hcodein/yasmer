@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>اتصل بنا</title>
+  <!-- ربط خط Cairo من Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- ربط أيقونات Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-yHfpZ+qeHLd6LeD2Wvi/YO/Q7bEpQBkPYV94wxE5ayMTpZEupV5EzTMzxbnvbXh1qytGOeCkGM4rw5qTMj/0Eg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ======== Reset بسيط ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #4e00c2, #00c0ff); /* بنفسجي داكن إلى أزرق سماوي */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+
+    /* ======== حاوية النموذج (Glassmorphism) ======== */
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: fadeInUp 1s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* ======== شكل الحقول مع الأيقونات ======== */
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 15px;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 14px 50px 14px 15px; /* مسافة لوجود الأيقونة من اليمين */
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.25);
+      font-size: 1rem;
+      color: #fff;
+      outline: none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      resize: none;
+    }
+
+    .input-group input::placeholder,
+    .input-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus {
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .input-group input:focus + i,
+    .input-group textarea:focus + i {
+      color: #ffffff;
+    }
+
+    /* ======== زر الإرسال ======== */
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(45deg, #9d00d5, #00e0ff);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.5s ease;
+      border-radius: 12px;
+    }
+
+    .btn-submit:hover::before {
+      left: 100%;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ======== Responsive ======== */
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      .input-group i {
+        font-size: 1rem;
+      }
+      .btn-submit {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>📬 اتصل بنا</h2>
+    <form action="https://formsubmit.co/sasoseka43@gmail.com" method="POST">
+      
+      <!-- حقل الاسم -->
+      <div class="input-group">
+        <input type="text" name="name" required placeholder="الاسم الكامل">
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <!-- حقل البريد الإلكتروني -->
+      <div class="input-group">
+        <input type="email" name="email" required placeholder="البريد الإلكتروني">
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+
+      <!-- حقل الرسالة -->
+      <div class="input-group">
+        <textarea name="message" rows="5" required placeholder="رسالتك..."></textarea>
+        <i class="fa-solid fa-message"></i>
+      </div>
+
+      <!-- منع السبام والانتقال بعد الإرسال -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://shfra.netlify.app/thanks">
+
+      <button type="submit" class="btn-submit">إرسال الرسالة</button>
+    </form>
+  </div>
+
+</body>
+</html>
